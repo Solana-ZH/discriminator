@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 anchor-lang = "0.25.0"
+base64 = "0.22.1"
+bs58 = "0.5.1"

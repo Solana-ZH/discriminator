@@ -27,7 +27,8 @@ Generate a hash using the default namespace of "global"
 $ discriminator my_name
 namespace: global
 name: my_name
-hash: [195, 62, 35, 70, 109, 102, 115, 85]
+hash: [195, 62, 35, 70, 109, 102, 115, 85] 0xb5108c225571d214
+b64:tRCMIlVx0hQ=
 ```
 
 Generate a hash using a custom namespace
@@ -35,7 +36,16 @@ Generate a hash using a custom namespace
 $ discriminator -n my_namespace my_name
 namespace: my_namespace
 name: my_name
-hash: [71, 239, 96, 91, 126, 146, 191, 3]
+hash: [71, 239, 96, 91, 126, 146, 191, 3] 0xb73ad6d3ae3df3b2
+b64:tzrW064987I=
+```
+Generate a hash using namespace of "event"
+```
+$ discriminator -e BuyEvent
+namespace: event
+name: BuyEvent
+hash:[103, 244, 82, 31, 44, 245, 119, 119] 0x67f4521f2cf57777
+b64:Z/RSHyz1d3c=
 ```
 ## Building
 
