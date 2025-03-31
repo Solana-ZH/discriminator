@@ -1,4 +1,5 @@
 use std::fmt;
+use heck::ToSnakeCase;
 struct ByteArray<'a>(&'a [u8; 8]);
 
 impl<'a> fmt::LowerHex for ByteArray<'a> {
@@ -39,6 +40,7 @@ fn main() -> () {
 }
 
 pub fn get_hash(namespace: &str, name: &str) -> [u8; 8] {
+    let name = name.to_snake_case();
     let preimage = format!("{}:{}", namespace, name);
     let mut sighash = [0u8; 8];
     sighash.copy_from_slice(
