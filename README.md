@@ -17,7 +17,7 @@ The program takes one required argument, `NAME`, which is the name to be combine
 ### Options
 
 `-n, --namespace`: Sets the namespace to use when generating the hash. If this option is not provided, the default namespace of `"global"` will be used.
-`-e`: Sets the namespace to use when generating the hash. d the namespace of `"event"` will be used.
+`-e`: Sets the namespace to use when generating the hash. the namespace of `"event"` will be used.
 
 ### Example Usage
 

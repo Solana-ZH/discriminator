@@ -1,5 +1,5 @@
-use std::fmt;
 use heck::ToSnakeCase;
+use std::fmt;
 struct ByteArray<'a>(&'a [u8; 8]);
 
 impl<'a> fmt::LowerHex for ByteArray<'a> {
@@ -17,6 +17,7 @@ fn bytes_to_hex(bytes: &[u8; 8]) -> String {
 fn main() -> () {
     let mut namespace = "global".to_string();
     let mut name = None;
+    let mut e = false;
     for arg in std::env::args().skip(1) {
         if arg == "-e" {
             namespace = "event".to_string(); //std::env::args().nth(2).expect("no namespace given");
@@ -27,7 +28,7 @@ fn main() -> () {
         }
     }
     let name = name.expect("no name given");
-    let hash = get_hash(&namespace, &name);
+    let hash = get_hash(&namespace, &name, e);
     let hex = bytes_to_hex(&hash);
 
     // print result
@@ -39,9 +40,15 @@ fn main() -> () {
     ()
 }
 
-pub fn get_hash(namespace: &str, name: &str) -> [u8; 8] {
-    let name = name.to_snake_case();
-    let preimage = format!("{}:{}", namespace, name);
+pub fn get_hash(namespace: &str, name: &str, e: bool) -> [u8; 8] {
+    let mut namehash = "".to_string();
+    if e {
+        namehash = name.to_snake_case();
+    } else {
+        namehash = name.to_string();
+    }
+
+    let preimage = format!("{}:{}", namespace, namehash);
     let mut sighash = [0u8; 8];
     sighash.copy_from_slice(
         &anchor_lang::solana_program::hash::hash(preimage.as_bytes()).to_bytes()[..8],
