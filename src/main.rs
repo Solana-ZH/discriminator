@@ -43,9 +43,9 @@ fn main() -> () {
 pub fn get_hash(namespace: &str, name: &str, e: bool) -> [u8; 8] {
     let mut namehash = "".to_string();
     if e {
-        namehash = name.to_snake_case();
-    } else {
         namehash = name.to_string();
+    } else {
+        namehash = name.to_snake_case();
     }
 
     let preimage = format!("{}:{}", namespace, namehash);
