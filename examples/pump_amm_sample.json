@@ -1,0 +1,59 @@
+{
+  "version": "0.1.0",
+  "name": "pump_amm",
+  "instructions": [
+    {
+      "name": "initialize",
+      "discriminator": [175, 175, 109, 31, 13, 152, 155, 237],
+      "accounts": [],
+      "args": []
+    },
+    {
+      "name": "buy",
+      "discriminator": [102, 6, 61, 18, 1, 218, 235, 234],
+      "accounts": [],
+      "args": []
+    },
+    {
+      "name": "sell",
+      "discriminator": [51, 230, 133, 164, 1, 127, 131, 173],
+      "accounts": [],
+      "args": []
+    },
+    {
+      "name": "withdraw",
+      "discriminator": [183, 18, 70, 156, 148, 109, 161, 34],
+      "accounts": [],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "BondingCurve",
+      "discriminator": [123, 45, 67, 89, 12, 34, 56, 78]
+    },
+    {
+      "name": "GlobalSettings",
+      "discriminator": [98, 76, 54, 32, 10, 87, 65, 43]
+    }
+  ],
+  "events": [
+    {
+      "name": "BuyEvent",
+      "discriminator": [103, 244, 82, 31, 44, 245, 119, 119]
+    },
+    {
+      "name": "SellEvent",
+      "discriminator": [200, 150, 100, 50, 25, 75, 125, 175]
+    },
+    {
+      "name": "CreateEvent",
+      "fields": []
+    },
+    {
+      "name": "WithdrawEvent",
+      "discriminator": [45, 67, 89, 123, 156, 78, 90, 234]
+    }
+  ],
+  "types": []
+}
